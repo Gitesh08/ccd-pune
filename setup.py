@@ -6,9 +6,9 @@ setup(
     py_modules=["gccd_pune"],
     entry_points={"console_scripts": ["gccd-pune=gccd_pune:main"]},
     description="Interactive CLI for Google Cloud Community Day Pune 2025",
-    long_description=open("README.md").read(),
+    long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
-    author="GDG Cloud Pune",
+    author="Your Name",
     author_email="gmahadik8080@gmail.com",
     url="https://github.com/Gitesh08/gccd-pune",
     classifiers=[

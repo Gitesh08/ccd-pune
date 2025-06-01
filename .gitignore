@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+dist/
+build/
+*.egg-info/
+.gccd_pune_guesses.txt
+*.DS_Store
+.ropeproject

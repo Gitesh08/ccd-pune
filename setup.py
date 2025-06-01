@@ -10,7 +10,7 @@ def read_file(file_name):
 
 setup(
     name="gccdpune",
-    version="1.0.1",
+    version="1.0.2",
     py_modules=["gccdpune"],
     entry_points={"console_scripts": ["gccdpune=gccdpune:main"]},
     description="Interactive CLI for Google Cloud Community Day Pune 2025",

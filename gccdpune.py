@@ -8,36 +8,39 @@ from colorama import init, Fore, Style
 # Version for setup.py
 __version__ = "1.0.1"
 
-# Initialize colorama for cross-platform colored output
+# Initialize colorama
 init(autoreset=True)
+
+# Custom color palette (approximated with colorama ANSI codes)
+PASTEL_BLUE = Fore.CYAN  # Headers, prompts
+PASTEL_GREEN = Fore.GREEN  # Success, reveal
+PASTEL_CORAL = Fore.YELLOW  # Hints
+PASTEL_PURPLE = Fore.MAGENTA  # Venue
+BRIGHT_RED = Fore.RED  # Errors
 
 def display_welcome():
     """Display an interactive welcome message."""
-    print(Fore.CYAN + "=" * 50)
+    print(PASTEL_BLUE + "=" * 50)
     print(Fore.YELLOW + "Welcome to GCCD Pune 2025!")
-    print(Fore.GREEN + "Join the cloud community in Pune for an epic event!")
-    print(Fore.MAGENTA + "Try these commands:")
-    print(Fore.MAGENTA + "  - `gccdpune --date` for a hint")
-    print(Fore.MAGENTA + "  - `gccdpune DD-MM-YY` to guess (e.g., 12-06-25)")
-    print(Fore.MAGENTA + "  - `gccdpune --venue` for venue info")
-    print(Fore.MAGENTA + "  - `gccdpune --help` for more details")
-    print(Fore.CYAN + "=" * 50)
+    print(PASTEL_GREEN + "Join the cloud community in Pune for an epic event!")
+    print(PASTEL_PURPLE + "Try these commands:")
+    print(PASTEL_PURPLE + "  - `gccdpune --date` for a hint")
+    print(PASTEL_PURPLE + "  - `gccdpune DD-MM-YY` to guess (e.g., 12-06-25)")
+    print(PASTEL_PURPLE + "  - `gccdpune --venue` for venue info")
+    print(PASTEL_PURPLE + "  - `gccdpune --help` for more details")
+    print(PASTEL_BLUE + "=" * 50)
 
 def should_show_welcome():
     """Check if welcome message should be shown."""
-    # Explicitly use USERPROFILE on Windows
     home_dir = Path(os.environ.get("USERPROFILE", Path.home()))
     welcome_flag = home_dir / ".gccdpune_welcome"
-    print(f"{Fore.CYAN}Checking welcome flag at: {welcome_flag}")  # Debug
     try:
         if not welcome_flag.exists():
             welcome_flag.touch()  # Create flag file
-            print(f"{Fore.CYAN}Created welcome flag: {welcome_flag}")  # Debug
             return True
-        print(f"{Fore.CYAN}Welcome flag exists, skipping welcome message")  # Debug
         return False
     except Exception as e:
-        print(f"{Fore.RED}Error handling welcome flag: {e}")
+        print(f"{BRIGHT_RED}Error handling welcome flag: {e}")
         return True  # Show welcome if file access fails
 
 def validate_date_format(date_str):
@@ -61,9 +64,9 @@ def main():
 
     correct_date = "12-07-25"
     hints = [
-        f"{Fore.YELLOW}Hint: Clouds part in Pune, day is a dozen!{Style.RESET_ALL}",
-        f"{Fore.YELLOW}Hint: The month is a prime number!{Style.RESET_ALL}",
-        f"{Fore.GREEN}Final reveal: The date is 12 July 2025!{Style.RESET_ALL}"
+        f"{PASTEL_CORAL}Hint: Clouds part in Pune, day is a dozen!{Style.RESET_ALL}",
+        f"{PASTEL_CORAL}Hint: The month is a prime number!{Style.RESET_ALL}",
+        f"{PASTEL_GREEN}Final reveal: The date is 12 July 2025!{Style.RESET_ALL}"
     ]
 
     # Track attempts in a file
@@ -77,15 +80,15 @@ def main():
 
     if args.date:
         print(hints[0])
-        print(f"{Fore.CYAN}Guess the date with: `gccdpune DD-MM-YY` (e.g., `gccdpune 12-06-25`)")
+        print(f"{PASTEL_BLUE}Guess the date with: `gccdpune DD-MM-YY` (e.g., `gccdpune 12-06-25`)")
     elif args.venue:
-        print(f"{Fore.MAGENTA}Thoda sabar karo")
+        print(f"{PASTEL_PURPLE}Thoda sabar karo")
     elif args.guess:
         if not validate_date_format(args.guess):
-            print(f"{Fore.RED}Invalid format! Use DD-MM-YY (e.g., 12-06-25)")
+            print(f"{BRIGHT_RED}Invalid format! Use DD-MM-YY (e.g., 12-06-25)")
             return
         if args.guess == correct_date:
-            print(f"{Fore.GREEN}Correct! Google Cloud Community Day Pune 2025 is on 12 July 2025!")
+            print(f"{PASTEL_GREEN}Correct! Google Cloud Community Day Pune 2025 is on 12 July 2025!")
             with open(guess_file, "w") as f:
                 f.write("0")  # Reset attempts
         else:
@@ -93,14 +96,14 @@ def main():
             with open(guess_file, "w") as f:
                 f.write(str(attempts))
             if attempts == 1:
-                print(f"{Fore.RED}Wrong guess! {hints[1]}")
-                print(f"{Fore.CYAN}Try again with: `gccdpune DD-MM-YY` (e.g., `gccdpune 12-06-25`)")
+                print(f"{BRIGHT_RED}Wrong guess! {hints[1]}")
+                print(f"{PASTEL_BLUE}Try again with: `gccdpune DD-MM-YY` (e.g., `gccdpune 12-06-25`)")
             else:
                 print(hints[2])
                 with open(guess_file, "w") as f:
                     f.write("0")  # Reset attempts
     else:
-        print(f"{Fore.CYAN}Get started with `gccdpune --date`, `gccdpune DD-MM-YY`, or `gccdpune --venue`.")
+        print(f"{PASTEL_BLUE}Get started with `gccdpune --date`, `gccdpune DD-MM-YY`, or `gccdpune --venue`.")
 
 if __name__ == "__main__":
     main()

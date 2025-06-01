@@ -5,6 +5,9 @@ import os
 from pathlib import Path
 from colorama import init, Fore, Style
 
+# Version for setup.py
+__version__ = "1.0.1"
+
 # Initialize colorama for cross-platform colored output
 init(autoreset=True)
 
@@ -23,10 +26,17 @@ def display_welcome():
 def should_show_welcome():
     """Check if welcome message should be shown."""
     welcome_flag = Path.home() / ".gccd_pune_welcome"
-    if not welcome_flag.exists():
-        welcome_flag.touch()  # Create flag file
-        return True
-    return False
+    print(f"{Fore.CYAN}Checking welcome flag at: {welcome_flag}")  # Debug
+    try:
+        if not welcome_flag.exists():
+            welcome_flag.touch()  # Create flag file
+            print(f"{Fore.CYAN}Created welcome flag: {welcome_flag}")  # Debug
+            return True
+        print(f"{Fore.CYAN}Welcome flag exists, skipping welcome message")  # Debug
+        return False
+    except Exception as e:
+        print(f"{Fore.RED}Error handling welcome flag: {e}")
+        return True  # Show welcome if file access fails
 
 def validate_date_format(date_str):
     """Validate DD-MM-YY format."""

@@ -9,16 +9,16 @@ def read_file(file_name):
     return ""
 
 setup(
-    name="gccd-pune",
+    name="gccdpune",
     version="1.0.1",
-    py_modules=["gccd_pune"],
-    entry_points={"console_scripts": ["gccd-pune=gccd_pune:main"]},
+    py_modules=["gccdpune"],
+    entry_points={"console_scripts": ["gccdpune=gccdpune:main"]},
     description="Interactive CLI for Google Cloud Community Day Pune 2025",
     long_description=read_file("README.md"),
     long_description_content_type="text/markdown",
     author="Gitesh Mahadik",
     author_email="gmahadik8080@gmail.com",
-    url="https://github.com/Gitesh08/gccd-pune",
+    url="https://github.com/Gitesh08/gccdpune",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

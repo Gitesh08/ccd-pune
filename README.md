@@ -3,28 +3,28 @@
 
 ## Install
 ```bash
-pip install gccd-pune
+pip install gccdpune
 ```
 
 ## Usage
 
 Get a hint:
 ```bash
-gccd-pune --date
+gccdpune --date
 Hint: Clouds part in Pune, day is a dozen!
-Guess the date with: `gccd-pune DD-MM-YY` (e.g., `gccd-pune 12-06-25`)
+Guess the date with: `gccdpune DD-MM-YY` (e.g., `gccdpune 12-06-25`)
 ```
 Guess the date:
 ```bash
-gccd-pune 12-06-25
+gccdpune 12-06-25
 Wrong guess! Hint: The month is a prime number!
-Try again with: `gccd-pune DD-MM-YY`
+Try again with: `gccdpune DD-MM-YY`
 ```
 Venue info:
 ```bash
-gccd-pune --venue
+gccdpune --venue
 ```
 See commands:
 ```bash
-gccd-pune --help
+gccdpune --help
 ```

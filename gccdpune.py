@@ -17,15 +17,17 @@ def display_welcome():
     print(Fore.YELLOW + "Welcome to GCCD Pune 2025!")
     print(Fore.GREEN + "Join the cloud community in Pune for an epic event!")
     print(Fore.MAGENTA + "Try these commands:")
-    print(Fore.MAGENTA + "  - `gccd-pune --date` for a hint")
-    print(Fore.MAGENTA + "  - `gccd-pune DD-MM-YY` to guess (e.g., 12-06-25)")
-    print(Fore.MAGENTA + "  - `gccd-pune --venue` for venue info")
-    print(Fore.MAGENTA + "  - `gccd-pune --help` for more details")
+    print(Fore.MAGENTA + "  - `gccdpune --date` for a hint")
+    print(Fore.MAGENTA + "  - `gccdpune DD-MM-YY` to guess (e.g., 12-06-25)")
+    print(Fore.MAGENTA + "  - `gccdpune --venue` for venue info")
+    print(Fore.MAGENTA + "  - `gccdpune --help` for more details")
     print(Fore.CYAN + "=" * 50)
 
 def should_show_welcome():
     """Check if welcome message should be shown."""
-    welcome_flag = Path.home() / ".gccd_pune_welcome"
+    # Explicitly use USERPROFILE on Windows
+    home_dir = Path(os.environ.get("USERPROFILE", Path.home()))
+    welcome_flag = home_dir / ".gccdpune_welcome"
     print(f"{Fore.CYAN}Checking welcome flag at: {welcome_flag}")  # Debug
     try:
         if not welcome_flag.exists():
@@ -46,7 +48,7 @@ def validate_date_format(date_str):
 def main():
     parser = argparse.ArgumentParser(
         description="Google Cloud Community Day Pune 2025 Interactive CLI",
-        epilog="Commands: `gccd-pune --date` for a hint, `gccd-pune DD-MM-YY` to guess the date, `gccd-pune --venue` for venue info."
+        epilog="Commands: `gccdpune --date` for a hint, `gccdpune DD-MM-YY` to guess the date, `gccdpune --venue` for venue info."
     )
     parser.add_argument("--date", action="store_true", help="Get a hint for the event")
     parser.add_argument("--venue", action="store_true", help="Get venue information")
@@ -65,7 +67,8 @@ def main():
     ]
 
     # Track attempts in a file
-    guess_file = Path.home() / ".gccd_pune_guesses.txt"
+    home_dir = Path(os.environ.get("USERPROFILE", Path.home()))
+    guess_file = home_dir / ".gccdpune_guesses.txt"
     try:
         with open(guess_file, "r") as f:
             attempts = int(f.read())
@@ -74,7 +77,7 @@ def main():
 
     if args.date:
         print(hints[0])
-        print(f"{Fore.CYAN}Guess the date with: `gccd-pune DD-MM-YY` (e.g., `gccd-pune 12-06-25`)")
+        print(f"{Fore.CYAN}Guess the date with: `gccdpune DD-MM-YY` (e.g., `gccdpune 12-06-25`)")
     elif args.venue:
         print(f"{Fore.MAGENTA}Thoda sabar karo")
     elif args.guess:
@@ -91,13 +94,13 @@ def main():
                 f.write(str(attempts))
             if attempts == 1:
                 print(f"{Fore.RED}Wrong guess! {hints[1]}")
-                print(f"{Fore.CYAN}Try again with: `gccd-pune DD-MM-YY` (e.g., `gccd-pune 12-06-25`)")
+                print(f"{Fore.CYAN}Try again with: `gccdpune DD-MM-YY` (e.g., `gccdpune 12-06-25`)")
             else:
                 print(hints[2])
                 with open(guess_file, "w") as f:
                     f.write("0")  # Reset attempts
     else:
-        print(f"{Fore.CYAN}Get started with `gccd-pune --date`, `gccd-pune DD-MM-YY`, or `gccd-pune --venue`.")
+        print(f"{Fore.CYAN}Get started with `gccdpune --date`, `gccdpune DD-MM-YY`, or `gccdpune --venue`.")
 
 if __name__ == "__main__":
     main()

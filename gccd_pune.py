@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import argparse
 import re
+import os
+from pathlib import Path
 from colorama import init, Fore, Style
 
 # Initialize colorama for cross-platform colored output
@@ -18,6 +20,14 @@ def display_welcome():
     print(Fore.MAGENTA + "  - `gccd-pune --help` for more details")
     print(Fore.CYAN + "=" * 50)
 
+def should_show_welcome():
+    """Check if welcome message should be shown."""
+    welcome_flag = Path.home() / ".gccd_pune_welcome"
+    if not welcome_flag.exists():
+        welcome_flag.touch()  # Create flag file
+        return True
+    return False
+
 def validate_date_format(date_str):
     """Validate DD-MM-YY format."""
     pattern = r"^\d{2}-\d{2}-\d{2}$"
@@ -33,8 +43,9 @@ def main():
     parser.add_argument("guess", nargs="?", help="Guess the date in DD-MM-YY format (e.g., 12-06-25)")
     args = parser.parse_args()
 
-    # Display welcome message on every command
-    display_welcome()
+    # Show welcome message only on first run
+    if should_show_welcome():
+        display_welcome()
 
     correct_date = "12-07-25"
     hints = [
@@ -44,10 +55,11 @@ def main():
     ]
 
     # Track attempts in a file
+    guess_file = Path.home() / ".gccd_pune_guesses.txt"
     try:
-        with open(".gccd_pune_guesses.txt", "r") as f:
+        with open(guess_file, "r") as f:
             attempts = int(f.read())
-    except FileNotFoundError:
+    except (FileNotFoundError, ValueError):
         attempts = 0
 
     if args.date:
@@ -61,18 +73,18 @@ def main():
             return
         if args.guess == correct_date:
             print(f"{Fore.GREEN}Correct! Google Cloud Community Day Pune 2025 is on 12 July 2025!")
-            with open(".gccd_pune_guesses.txt", "w") as f:
+            with open(guess_file, "w") as f:
                 f.write("0")  # Reset attempts
         else:
             attempts += 1
-            with open(".gccd_pune_guesses.txt", "w") as f:
+            with open(guess_file, "w") as f:
                 f.write(str(attempts))
             if attempts == 1:
                 print(f"{Fore.RED}Wrong guess! {hints[1]}")
                 print(f"{Fore.CYAN}Try again with: `gccd-pune DD-MM-YY` (e.g., `gccd-pune 12-06-25`)")
             else:
                 print(hints[2])
-                with open(".gccd_pune_guesses.txt", "w") as f:
+                with open(guess_file, "w") as f:
                     f.write("0")  # Reset attempts
     else:
         print(f"{Fore.CYAN}Get started with `gccd-pune --date`, `gccd-pune DD-MM-YY`, or `gccd-pune --venue`.")

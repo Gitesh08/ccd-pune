@@ -3,12 +3,12 @@ from setuptools import setup
 setup(
     name="gccd-pune",
     version="1.0.0",
-    py_modules=["gccd_pune"],
-    entry_points={"console_scripts": ["gccd-pune=gccd_pune:main"]},
+    py_modules=["gccd-pune"],
+    entry_points={"console_scripts": ["gccd-pune=gccd-pune:main"]},
     description="Interactive CLI for Google Cloud Community Day Pune 2025",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
-    author="Your Name",
+    author="Gitesh Mahadik",
     author_email="gmahadik8080@gmail.com",
     url="https://github.com/Gitesh08/gccd-pune",
     classifiers=[

@@ -9,7 +9,7 @@ init(autoreset=True)
 def display_welcome():
     """Display an interactive welcome message."""
     print(Fore.CYAN + "=" * 50)
-    print(Fore.YELLOW + "🌩️ Welcome to GCCD Pune 2025! 🌩️")
+    print(Fore.YELLOW + "Welcome to GCCD Pune 2025!")
     print(Fore.GREEN + "Join the cloud community in Pune for an epic event!")
     print(Fore.MAGENTA + "Try these commands:")
     print(Fore.MAGENTA + "  - `gccd-pune --date` for a hint")

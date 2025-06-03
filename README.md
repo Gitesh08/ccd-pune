@@ -14,9 +14,8 @@ Organized by **GDG Cloud Pune**, Cloud Community Day Pune 2025 is the city’s p
 - **Networking Hub**: Connect with professionals and spark collaborations.
 - **Epic Swag**: Exclusive goodies to celebrate #CCDPune25!
 
-📅 **Date**: 12 July 2025
 🌐 **Website**: [ccd.gdgcloudpune.com](https://ccd.gdgcloudpune.com/)
-📢 **Follow Us**: [LinkedIn](https://www.linkedin.com/company/gdg-cloud-pune/) | [Instagram](https://www.instagram.com/gdgcloudpune/) | [X](https://x.com/gdgcloudpune) #CCDPune25
+📢 **Follow Us**: [LinkedIn](https://www.linkedin.com/company/gdg-cloud-pune/) | [Instagram](https://www.instagram.com/gdgcloudpune/) | [X](https://x.com/gdgcloudpune)
 
 ## 🎉 Get Started
 
@@ -57,7 +56,6 @@ Join the cloud revolution! Follow GDG Cloud Pune for updates:
 - [LinkedIn](https://www.linkedin.com/company/gdg-cloud-pune/)
 - [Instagram](https://www.instagram.com/gdg.cloudpune/)
 - [X](https://x.com/gdgcloudpune)
-- #CCDPune25
 
 ---
 

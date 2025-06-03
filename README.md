@@ -15,11 +15,7 @@ Organized by **GDG Cloud Pune**, Cloud Community Day Pune 2025 is the city’s p
 - **Epic Swag**: Exclusive goodies to celebrate #CCDPune25!
 
 🌐 **Website**: [ccd.gdgcloudpune.com](https://ccd.gdgcloudpune.com/)
-📢 **Follow Us**:
-![LinkedIn](https://simpleicons.org/icons/linkedin.svg#20) [LinkedIn](https://www.linkedin.com/company/gdg-cloud-pune/)
-![Instagram](https://simpleicons.org/icons/instagram.svg#20) [Instagram](https://www.instagram.com/gdg.cloudpune/)
-![X](https://simpleicons.org/icons/x.svg#20) [X](https://x.com/gdgcloudpune)
-#CCDPune25
+📢 **Follow Us**: [LinkedIn](https://www.linkedin.com/company/gdg-cloud-pune/) | [Instagram](https://www.instagram.com/gdgcloudpune/) | [X](https://x.com/gdgcloudpune)
 
 ## 🎉 Get Started
 
@@ -29,7 +25,7 @@ Install the CLI to unlock the #CCDPune25 experience:
 pip install ccdpune
 ```
 
-Run `ccdpune` to kick off with a colorful welcome message!
+Run `ccdpune` to kick off!
 
 ## ✨ CLI Features
 
@@ -52,7 +48,7 @@ This project is licensed under the [MIT License](./LICENSE). See the file for de
 
 ## 🤝 Contribute
 
-Passionate about #CCDPune25? Fork the repo, add features, or report issues at [github.com/Gitesh08/ccd-pune](https://github.com/Gitesh08/ccd-pune). Let’s build something epic together!
+Passionate about #CCDPune25? Fork the repo, add features, or report issues [Here](https://github.com/Gitesh08/ccd-pune/issues). Let’s build something epic together!
 
 ## 📢 Stay Connected
 

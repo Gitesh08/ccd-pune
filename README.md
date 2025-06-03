@@ -4,7 +4,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/ccdpune?color=blue)](https://pypi.org/project/ccdpune/)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](./LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/Gitesh08/ccdpune?style=social)](https://github.com/Gitesh08/ccdpune)
+[![GitHub Stars](https://img.shields.io/github/stars/Gitesh08/ccdpune?style=social)](https://github.com/Gitesh08/ccd-pune)
 
 ## 🌟 About Cloud Community Day Pune 2025
 

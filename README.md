@@ -4,7 +4,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/ccdpune?color=blue)](https://pypi.org/project/ccdpune/)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](./LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/Gitesh08/ccdpune?style=social)](https://github.com/Gitesh08/ccd-pune)
+[![GitHub Stars](https://img.shields.io/github/stars/Gitesh08/ccd-pune?style=social)](https://github.com/Gitesh08/ccd-pune)
 
 ## 🌟 About Cloud Community Day Pune 2025
 
@@ -49,7 +49,7 @@ This project is licensed under the [MIT License](./LICENSE). See the file for de
 
 ## 🤝 Contribute
 
-Passionate about #CCDPune25? Fork the repo, add features, or report issues at [github.com/Gitesh08/ccdpune](https://github.com/Gitesh08/ccdpune). Let’s build something epic together!
+Passionate about #CCDPune25? Fork the repo, add features, or report issues at [github.com/Gitesh08/ccd-pune](https://github.com/Gitesh08/ccd-pune). Let’s build something epic together!
 
 ## 📢 Stay Connected
 

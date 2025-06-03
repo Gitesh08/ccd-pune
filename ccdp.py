@@ -6,34 +6,35 @@ from pathlib import Path
 from colorama import init, Fore, Style
 
 # Version for setup.py
-__version__ = "1.0.2"
+__version__ = "2025.0.0"
 
 # Initialize colorama
 init(autoreset=True)
 
-# Custom color palette (approximated with colorama ANSI codes)
+# Custom color palette
 PASTEL_BLUE = Fore.CYAN  # Headers, prompts
 PASTEL_GREEN = Fore.GREEN  # Success, reveal
 PASTEL_CORAL = Fore.YELLOW  # Hints
-PASTEL_PURPLE = Fore.MAGENTA  # Venue
+PASTEL_YELLOW = Fore.YELLOW  # Venue, info
 BRIGHT_RED = Fore.RED  # Errors
 
 def display_welcome():
     """Display an interactive welcome message."""
     print(PASTEL_BLUE + "=" * 50)
-    print(Fore.YELLOW + "Welcome to GCCD Pune 2025!")
+    print(Fore.YELLOW + "Welcome to CCD Pune 2025!")
     print(PASTEL_GREEN + "Join the cloud community in Pune for an epic event!")
-    print(PASTEL_PURPLE + "Try these commands:")
-    print(PASTEL_PURPLE + "  - `gccdpune --date` for a hint")
-    print(PASTEL_PURPLE + "  - `gccdpune DD-MM-YY` to guess (e.g., 12-06-25)")
-    print(PASTEL_PURPLE + "  - `gccdpune --venue` for venue info")
-    print(PASTEL_PURPLE + "  - `gccdpune --help` for more details")
+    print(PASTEL_YELLOW + "Try these commands:")
+    print(PASTEL_YELLOW + "  - `ccdpune --date` for a date hint")
+    print(PASTEL_YELLOW + "  - `ccdpune DD-MM-YY` to guess the date (e.g., 12-06-25)")
+    print(PASTEL_YELLOW + "  - `ccdpune --venue` for venue info")
+    print(PASTEL_YELLOW + "  - `ccdpune --info` for event details")
+    print(PASTEL_YELLOW + "  - `ccdpune --help` for more details")
     print(PASTEL_BLUE + "=" * 50)
 
 def should_show_welcome():
     """Check if welcome message should be shown."""
     home_dir = Path(os.environ.get("USERPROFILE", Path.home()))
-    welcome_flag = home_dir / ".gccdpune_welcome"
+    welcome_flag = home_dir / ".ccdpune_welcome"
     try:
         if not welcome_flag.exists():
             welcome_flag.touch()  # Create flag file
@@ -50,11 +51,12 @@ def validate_date_format(date_str):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Google Cloud Community Day Pune 2025 Interactive CLI",
-        epilog="Commands: `gccdpune --date` for a hint, `gccdpune DD-MM-YY` to guess the date, `gccdpune --venue` for venue info."
+        description="Cloud Community Day Pune 2025 Interactive CLI",
+        epilog="Commands: `ccdpune --date` for a hint, `ccdpune DD-MM-YY` to guess the date, `ccdpune --venue`, `--info` for event details."
     )
-    parser.add_argument("--date", action="store_true", help="Get a hint for the event")
+    parser.add_argument("--date", action="store_true", help="Get a hint for the event date")
     parser.add_argument("--venue", action="store_true", help="Get venue information")
+    parser.add_argument("--info", action="store_true", help="Get event overview and details")
     parser.add_argument("guess", nargs="?", help="Guess the date in DD-MM-YY format (e.g., 12-06-25)")
     args = parser.parse_args()
 
@@ -71,7 +73,7 @@ def main():
 
     # Track attempts in a file
     home_dir = Path(os.environ.get("USERPROFILE", Path.home()))
-    guess_file = home_dir / ".gccdpune_guesses.txt"
+    guess_file = home_dir / ".ccdpune_guesses.txt"
     try:
         with open(guess_file, "r") as f:
             attempts = int(f.read())
@@ -80,15 +82,23 @@ def main():
 
     if args.date:
         print(hints[0])
-        print(f"{PASTEL_BLUE}Guess the date with: `gccdpune DD-MM-YY` (e.g., `gccdpune 12-06-25`)")
+        print(f"{PASTEL_BLUE}Guess the date with: `ccdpune DD-MM-YY` (e.g., `ccdpune 12-06-25`)")
     elif args.venue:
-        print(f"{PASTEL_PURPLE}Thoda sabar karo")
+        print(f"{PASTEL_YELLOW}Venue: Details coming soon at https://ccd.gdgcloudpune.com/")
+    elif args.info:
+        print(PASTEL_YELLOW + "=" * 50)
+        print(f"{PASTEL_YELLOW}Cloud Community Day Pune 2025")
+        print(f"{PASTEL_YELLOW}Date: 12 July 2025")
+        print(f"{PASTEL_YELLOW}Organized by: GDG Cloud Pune")
+        print(f"{PASTEL_YELLOW}Overview: Join tech enthusiasts for talks, workshops, and networking on Google Cloud, AI, and certifications.")
+        print(f"{PASTEL_YELLOW}Website: https://ccd.gdgcloudpune.com/")
+        print(PASTEL_YELLOW + "=" * 50)
     elif args.guess:
         if not validate_date_format(args.guess):
             print(f"{BRIGHT_RED}Invalid format! Use DD-MM-YY (e.g., 12-06-25)")
             return
         if args.guess == correct_date:
-            print(f"{PASTEL_GREEN}Correct! Google Cloud Community Day Pune 2025 is on 12 July 2025!")
+            print(f"{PASTEL_GREEN}Correct! Cloud Community Day Pune 2025 is on 12 July 2025!")
             with open(guess_file, "w") as f:
                 f.write("0")  # Reset attempts
         else:
@@ -97,13 +107,13 @@ def main():
                 f.write(str(attempts))
             if attempts == 1:
                 print(f"{BRIGHT_RED}Wrong guess! {hints[1]}")
-                print(f"{PASTEL_BLUE}Try again with: `gccdpune DD-MM-YY` (e.g., `gccdpune 12-06-25`)")
+                print(f"{PASTEL_BLUE}Try again with: `ccdpune DD-MM-YY` (e.g., `ccdpune 12-06-25`)")
             else:
                 print(hints[2])
                 with open(guess_file, "w") as f:
                     f.write("0")  # Reset attempts
     else:
-        print(f"{PASTEL_BLUE}Get started with `gccdpune --date`, `gccdpune DD-MM-YY`, or `gccdpune --venue`.")
+        print(f"{PASTEL_BLUE}Get started with `ccdpune --date`, `ccdpune DD-MM-YY`, `ccdpune --venue`, or `ccdpune --info`.")
 
 if __name__ == "__main__":
     main()

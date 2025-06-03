@@ -4,8 +4,7 @@ dist/
 build/
 *.egg-info/
 .gccdpune_guesses.txt
-.gccdpune_welcome
-.gccd_pune_welcome
-.gccd_pune_guesses.txt
+.ccdpune_guesses.txt
+.ccdpune_welcome
 *.DS_Store
 .ropeproject

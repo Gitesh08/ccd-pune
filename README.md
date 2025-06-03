@@ -2,7 +2,7 @@
 
 🚀 Get ready for **Cloud Community Day Pune 2025**, Pune’s largest cloud extravaganza, with this dynamic CLI tool! Dive into the excitement of #CCDPune25, explore event details, and join a vibrant tech community passionate about Google Cloud, AI, and innovation.
 
-[![PyPI](https://img.shields.io/pypi/v/ccdpune?color=blue)](https://pypi.org/project/ccdpune/)
+[![PyPI](https://img.shields.io/pypi/v/ccdpune/1.0.1?color=blue)](https://pypi.org/project/ccdpune/)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](./LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/Gitesh08/ccd-pune?style=social)](https://github.com/Gitesh08/ccd-pune)
 
@@ -15,7 +15,11 @@ Organized by **GDG Cloud Pune**, Cloud Community Day Pune 2025 is the city’s p
 - **Epic Swag**: Exclusive goodies to celebrate #CCDPune25!
 
 🌐 **Website**: [ccd.gdgcloudpune.com](https://ccd.gdgcloudpune.com/)
-📢 **Follow Us**: [LinkedIn](https://www.linkedin.com/company/gdg-cloud-pune/) | [Instagram](https://www.instagram.com/gdgcloudpune/) | [X](https://x.com/gdgcloudpune)
+📢 **Follow Us**:
+![LinkedIn](https://simpleicons.org/icons/linkedin.svg#20) [LinkedIn](https://www.linkedin.com/company/gdg-cloud-pune/)
+![Instagram](https://simpleicons.org/icons/instagram.svg#20) [Instagram](https://www.instagram.com/gdg.cloudpune/)
+![X](https://simpleicons.org/icons/x.svg#20) [X](https://x.com/gdgcloudpune)
+#CCDPune25
 
 ## 🎉 Get Started
 

@@ -10,7 +10,7 @@ def read_file(file_name):
 
 setup(
     name="ccdpune",
-    version="1.0.0",
+    version="1.0.1",
     py_modules=["ccdp"],
     entry_points={"console_scripts": ["ccdpune=ccdp:main"]},
     description="Interactive CLI for Cloud Community Day Pune 2025",

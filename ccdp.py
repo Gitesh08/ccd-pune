@@ -6,7 +6,7 @@ from pathlib import Path
 from colorama import init, Fore, Style
 
 # Version for setup.py
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 # Initialize colorama
 init(autoreset=True)
